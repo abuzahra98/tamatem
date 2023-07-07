@@ -1,21 +1,22 @@
 <template>
   <v-container class="container_default">
     <v-col class="block_main" lg="8" offset-lg="2" sm="12">
-
+      
       <div class="login__section">
-        <div class="login__container">
+           <v-form @submit.prevent class="login__container">
           <div class="align-center text-center div-container">
             <v-img class="logo" height="128" src="https://avatars.githubusercontent.com/u/124091983" />
 
-            <v-text-field clearable label="Email" variant="outlined"></v-text-field>
+            <v-text-field clearable label="Email" v-model="email" :rules="emailRules" variant="outlined"></v-text-field>
             <v-text-field type="password" v-model="Password" :rules="rules" label="Password"
               variant="outlined"></v-text-field>
             <div class="btn-container">
-              <button>LOGIN</button>
+              <button type="submit">LOGIN</button>
             </div>
           </div>
-        </div>
-      </div>
+        </v-form>
+       </div>
+      
     </v-col>
   </v-container>
 </template>
@@ -28,9 +29,18 @@ export default {
       (value: any) => {
         if (value.length >= 8) return true
 
-        return 'Validation Message'
+        return 'Password is incorrect'
       },
     ],
+
+    email: '123',
+    emailRules: [
+        (value:any) => {
+          if (/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) return true
+
+          return 'Email is incorrect'
+        },
+      ],
   }),
 }
 </script>
@@ -83,11 +93,18 @@ export default {
       color: $red;
       opacity: 100%;
     }
+    
+   
 
 
   }
 }
 
+
+.v-input {
+      margin-block-start: 10px;
+
+    }
 .btn-container {
   display: flex;
   justify-content: end;
@@ -123,7 +140,7 @@ export default {
   }
 
   .block_main {
-    max-height: 390px;
+    max-height: 420px;
   }
 }
 </style>
