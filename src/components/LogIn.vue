@@ -1,67 +1,64 @@
 <template>
-  <div class="login__section">
-    <div class="login__container">
-      <div class="align-center text-center div-container">
-        <v-img
-          style="margin-block-end: 16px;"
-          height="128"
-          src="https://avatars.githubusercontent.com/u/124091983"
-        />
+  <v-container class="container_default">
+    <v-col class="block_main" lg="8" offset-lg="2" sm="12">
 
-        <v-text-field clearable label="Email" variant="outlined"></v-text-field>
-        <v-text-field
+      <div class="login__section">
+        <div class="login__container">
+          <div class="align-center text-center div-container">
+            <v-img style="margin-block-end: 16px;" height="128" src="https://avatars.githubusercontent.com/u/124091983" />
 
-          type="password"
-          v-model="Password"
-          :rules="rules"
-          label="Password"
-          variant="outlined"
-        ></v-text-field>
-        <div class="btn-container">
-          <button>LOGIN</button>
+            <v-text-field clearable label="Email" variant="outlined"></v-text-field>
+            <v-text-field type="password" v-model="Password" :rules="rules" label="Password"
+              variant="outlined"></v-text-field>
+            <div class="btn-container">
+              <button>LOGIN</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </v-col>
+  </v-container>
 </template>
 
 <script lang="ts">
 //
 export default {
-    data: () => ({
-      Password: '',
-      rules: [
-        (value:string) => {
-          if (value.length >= 8) return true
+  data: () => ({
+    Password: '',
+    rules: [
+      (value: any) => {
+        if (value.length >= 8) return true
 
-          return 'Validation Message'
-        },
-      ],
-    }),
-  }
+        return 'Validation Message'
+      },
+    ],
+  }),
+}
 </script>
 <style lang="scss">
 @import '../styles/settings.scss';
 
 .login__section {
   align-items: center;
-  height: 100vh;
+  height: 100%;
   width: 100%;
-  background: $primary;
+  // background: $primary;
   display: flex;
   justify-content: center;
-  padding: 65px 319px;
 
 }
+
 .login__container {
   display: flex;
+  box-shadow: 0px 3px 6px #00000029;
   justify-content: center;
   align-items: center;
   max-width: 768px;
   max-height: 950px;
-   width: 100%;
+  width: 100%;
   height: 100%;
   background: $light;
+  padding: 0 10px;
 }
 
 .div-container {
@@ -69,23 +66,23 @@ export default {
   height: 326px;
 
   .v-messages {
-      text-align: start;
-    }
+    text-align: start;
+  }
+
   img {
     margin-block-end: 16px;
   }
 
   .v-input__control {
-    width: 328px;
+    width: 100%;
     height: 56px;
-    // color:#00000043;
 
-    opacity:100%;
+    opacity: 100%;
 
 
     .v-label {
       color: $red;
-      opacity:100%;
+      opacity: 100%;
     }
 
 
@@ -106,6 +103,28 @@ export default {
     height: 36px;
     color: $light;
     font-size: 14px;
+  }
+}
+
+.container_default {
+  height: 100%;
+  box-shadow: 0 0 #000;
+}
+
+.block_main {
+  height: 100%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@media only screen and (max-width:480px) {
+  .container_default {
+    padding: 35% 0 !important
+  }
+
+  .block_main {
+    max-height: 390px;
   }
 }
 </style>
