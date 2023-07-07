@@ -8,7 +8,7 @@
             <v-img class="logo" height="128" src="https://avatars.githubusercontent.com/u/124091983" />
 
             <v-text-field clearable label="Email" v-model="email" :rules="emailRules" variant="outlined"></v-text-field>
-            <v-text-field type="password" v-model="Password" :rules="rules" label="Password"
+            <v-text-field type="password" v-model="Password" :rules="passwordRules" label="Password"
               variant="outlined"></v-text-field>
             <div class="btn-container">
               <button type="submit">LOGIN</button>
@@ -25,7 +25,7 @@
 export default {
   data: () => ({
     Password: '',
-    rules: [
+    passwordRules: [
       (value: any) => {
         if (value.length >= 8) return true
 
@@ -33,7 +33,7 @@ export default {
       },
     ],
 
-    email: '123',
+    email: '',
     emailRules: [
         (value:any) => {
           if (/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) return true
