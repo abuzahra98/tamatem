@@ -39,7 +39,7 @@ export default {
   (value: any) => {
     if (!value) {
       return 'Email is required';
-    } else if (!/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) {
+    } else if (!/^[\w.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,}$/i.test(value)) {
       return 'Email is incorrect';
     }
 
