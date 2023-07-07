@@ -29,18 +29,23 @@ export default {
       (value: any) => {
         if (value.length >= 8) return true
 
-        return 'Password is incorrect'
+        return 'Password must be 8'
       },
     ],
+    
 
     email: '',
     emailRules: [
-        (value:any) => {
-          if (/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) return true
+  (value: any) => {
+    if (!value) {
+      return 'Email is required';
+    } else if (!/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) {
+      return 'Email is incorrect';
+    }
 
-          return 'Email is incorrect'
-        },
-      ],
+    return true;
+  }
+],
   }),
 }
 </script>
