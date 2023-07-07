@@ -5,7 +5,7 @@
       <div class="login__section">
         <div class="login__container">
           <div class="align-center text-center div-container">
-            <v-img style="margin-block-end: 16px;" height="128" src="https://avatars.githubusercontent.com/u/124091983" />
+            <v-img class="logo" height="128" src="https://avatars.githubusercontent.com/u/124091983" />
 
             <v-text-field clearable label="Email" variant="outlined"></v-text-field>
             <v-text-field type="password" v-model="Password" :rules="rules" label="Password"
@@ -21,7 +21,6 @@
 </template>
 
 <script lang="ts">
-//
 export default {
   data: () => ({
     Password: '',
@@ -42,7 +41,6 @@ export default {
   align-items: center;
   height: 100%;
   width: 100%;
-  // background: $primary;
   display: flex;
   justify-content: center;
 
@@ -69,8 +67,9 @@ export default {
     text-align: start;
   }
 
-  img {
-    margin-block-end: 16px;
+  .logo {
+    margin-block-end: 16px !important;
+    
   }
 
   .v-input__control {
