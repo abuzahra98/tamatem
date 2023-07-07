@@ -31,7 +31,7 @@ export default {
     data: () => ({
       Password: '',
       rules: [
-        value => {
+        (value:any) => {
           if (value.length >= 8) return true
 
           return 'Validation Message'
