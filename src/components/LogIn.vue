@@ -29,7 +29,7 @@ export default {
       (value: any) => {
         if (value.length >= 8) return true
 
-        return 'Password must be 8'
+        return 'Password must be at lest 8'
       },
     ],
     
